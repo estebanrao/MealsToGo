@@ -13,7 +13,7 @@ import { Columns, Rating } from './restaurant-info-card.styles';
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = 'Guerrin',
-    icon,
+    // icon,
     photos = [
       'http://viajoconvos.com.ar/wp-content/uploads/2018/11/Guerrin-Frente.jpg',
     ],
@@ -21,6 +21,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeId,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -28,7 +29,6 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   return (
     <Card elevation={5}>
       <Card.Cover key={name} source={{ uri: photos[0] }} />
-      {/* <Card.Title title={name} subtitle={address} /> */}
       <Card.Content>
         <Spacer position="top" size="large">
           <Text variant="h5">{name}</Text>
@@ -36,7 +36,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <Columns>
           <Rating>
             {ratingArray.map((e, i) => (
-              <SvgXml xml={star} width={20} height={20} key={i} />
+              <SvgXml
+                xml={star}
+                width={20}
+                height={20}
+                key={`star-${placeId}-${i}`}
+              />
             ))}
           </Rating>
           {isClosedTemporarily && (
