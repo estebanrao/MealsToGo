@@ -49,6 +49,7 @@ const variants = {
 export const Text = styled.Text`
   ${({ theme }) => defaultTextStyles(theme)}
   ${({ variant, theme }) => variants[variant](theme)}
+  ${({ center }) => center && 'text-align: center'}
 `;
 
 Text.defaultProps = {

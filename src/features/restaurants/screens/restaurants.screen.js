@@ -6,7 +6,7 @@ import { ActivityIndicator, Colors } from 'react-native-paper';
 import { SafeArea } from '../../../components/utils/safe-area.component';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
-import { Search } from '../components/search.component';
+import { RestaurantSearch } from '../components/restaurant-search.component';
 
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context';
 
@@ -37,7 +37,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           <Loader size={50} animating={true} color={Colors.red800} />
         </LoaderContainer>
       )}
-      <Search />
+      <RestaurantSearch />
       <RestaurantList
         data={restaurants}
         renderItem={({ item }) => (
