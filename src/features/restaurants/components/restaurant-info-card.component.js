@@ -4,11 +4,12 @@ import { SvgXml } from 'react-native-svg';
 
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { Text } from '../../../components/typography/text.component';
+import { Favourites } from '../../../components/favourites/favourites.component';
 
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
 
-import { Columns, Rating } from './restaurant-info-card.styles';
+import { Columns, Rating, Image } from './restaurant-info-card.styles';
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -28,7 +29,8 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <Card elevation={5}>
-      <Card.Cover key={name} source={{ uri: photos[0] }} />
+      <Favourites restaurant={restaurant} />
+      <Image key={name} source={{ uri: photos[0] }} />
       <Card.Content>
         <Spacer position="top" size="large">
           <Text variant="h5">{name}</Text>

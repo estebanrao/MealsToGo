@@ -9,11 +9,13 @@ import { Text } from '../typography/text.component';
 const CompactImage = styled.Image`
   width: 100px;
   height: 100px;
+  border-radius: 5px;
 `;
 
 const CompactWebView = styled(WebView)`
   width: 100px;
   height: 100px;
+  border-radius: 5px;
 `;
 
 const Item = styled.View`
@@ -21,8 +23,9 @@ const Item = styled.View`
   align-items: center;
 `;
 
-export const CompactRestaurantInfo = ({ restaurant }) => {
-  const Image = Platform.OS === 'android' ? CompactWebView : CompactImage;
+export const CompactRestaurantInfo = ({ restaurant, isMap = false }) => {
+  const Image =
+    Platform.OS === 'android' && isMap ? CompactWebView : CompactImage;
 
   return (
     <Item>
