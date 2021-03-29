@@ -9,6 +9,11 @@ const defaultTextStyles = (theme) => `
   margin-bottom: 0px;
 `;
 
+const h3 = (theme) => `
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.h3};
+`;
+
 const h5 = (theme) => `
     font-family: ${theme.fonts.heading};
     font-size: ${theme.fontSizes.h5};
@@ -38,6 +43,7 @@ const hint = (theme) => `
 `;
 
 const variants = {
+  h3,
   h5,
   body,
   label,
